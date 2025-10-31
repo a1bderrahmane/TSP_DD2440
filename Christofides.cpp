@@ -1,9 +1,9 @@
-#include "Implementation1.hpp"
+#include "Christofides.hpp"
 #include "ITSPsolver.hpp"
 
 using namespace std;
 
-vector<int> Implementation1::solve( vector<Point> &points)
+vector<int> Christofides::solve( vector<Point> &points)
 {
     int n = points.size();
     if (n == 0)

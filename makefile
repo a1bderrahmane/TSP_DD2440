@@ -8,7 +8,7 @@ TARGET = tsp_solver
 # Source files
 SOURCES = main.cpp \
           GreedyTSPsolver.cpp \
-          Implementation1.cpp \
+          Christofides.cpp \
           Implementation2.cpp \
           Implementation3.cpp \
           Implementation4.cpp
@@ -16,7 +16,7 @@ SOURCES = main.cpp \
 # Header files (for dependency tracking)
 HEADERS = ITSPsolver.hpp \
           GreedyTSPsolver.hpp \
-          Implementation1.hpp \
+          Christofides.hpp \
           Implementation2.hpp \
           Implementation3.hpp \
           Implementation4.hpp

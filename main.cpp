@@ -1,4 +1,4 @@
-#include "Implementation1.hpp"
+#include "Christofides.hpp"
 #include "Implementation2.hpp"
 #include "Implementation3.hpp"
 #include "Implementation4.hpp"
@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
     if (argc < 2) {
         cerr << "Usage: " << argv[0] << " <implementation_number>" << endl;
         cerr << "  0 - GreedyTSPSolver (baseline)" << endl;
-        cerr << "  1 - Implementation1" << endl;
+        cerr << "  1 - Christofides" << endl;
         cerr << "  2 - Implementation2" << endl;
         cerr << "  3 - Implementation3" << endl;
         cerr << "  4 - Implementation4" << endl;
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
             break;
         }
         case 1: {
-            Implementation1 solver;
+            Christofides solver;
             tour = solver.solve(points);
             break;
         }

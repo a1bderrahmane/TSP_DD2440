@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Implementation1 : public ITSPSolver
+class Christofides : public ITSPSolver
 {
 public:
     vector<int> solve(vector<Point> &points) override;
