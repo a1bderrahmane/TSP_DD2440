@@ -14,6 +14,9 @@ struct Point
 
     Point() : x(0), y(0) {}
     Point(double x, double y) : x(x), y(y) {}
+    bool operator==(const Point& other) const {
+        return (this->x == other.x && this->y == other.y);
+    }
 };
 
 // Computes Euclidean distance rounded to nearest integer
@@ -21,7 +24,7 @@ inline double computeDistance(const Point &a, const Point &b)
 {
     double dx = a.x - b.x;
     double dy = a.y - b.y;
-    return static_cast<int>(round(sqrt(dx * dx + dy * dy)));
+    return dx * dx + dy * dy;
 }
 
 /**
@@ -38,7 +41,7 @@ public:
      * @param points Vector of 2D points to visit
      * @return Vector of indices representing the tour order (0-based)
      */
-    virtual vector<int> solve( vector<Point> &points) = 0;
+    virtual vector<int> solve() = 0;
 
     /**
      * Optional: Initialize solver with points (for preprocessing).
@@ -80,7 +83,7 @@ protected:
      */
     bool isValidTour(const vector<int> &tour, int n) const
     {
-        if (tour.size() != static_cast<size_t>(n))
+        if (tour.size() != n)
             return false;
 
         vector<bool> visited(n, false);

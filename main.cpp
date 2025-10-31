@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
             break;
         }
         case 1: {
-            Christofides solver;
+            Christofides solver= Christofides(points);
             tour = solver.solve(points);
             break;
         }
