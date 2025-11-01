@@ -98,13 +98,13 @@ MST Christofides::constructMST(const vector<Point> &points)
     return mst;
 }
 
-
-vector<int> Christofides::getOddDegreeVertices(const vector<Point>& points, const MST& mst)
+vector<int> Christofides::getOddDegreeVertices(const vector<Point> &points, const MST &mst)
 {
     unordered_map<int, int> degree;
-    for (int i = 0; i < points.size(); ++i) degree[i] = 0;
+    for (int i = 0; i < points.size(); ++i)
+        degree[i] = 0;
 
-    for (const auto& e : mst.edges)
+    for (const auto &e : mst.edges)
     {
         int i1 = find(points.begin(), points.end(), e.node1) - points.begin();
         int i2 = find(points.begin(), points.end(), e.node2) - points.begin();
@@ -113,7 +113,7 @@ vector<int> Christofides::getOddDegreeVertices(const vector<Point>& points, cons
     }
 
     vector<int> oddVertices;
-    for (auto& [idx, deg] : degree)
+    for (auto &[idx, deg] : degree)
     {
         if (deg % 2 == 1)
             oddVertices.push_back(idx);
@@ -122,7 +122,7 @@ vector<int> Christofides::getOddDegreeVertices(const vector<Point>& points, cons
     return oddVertices;
 }
 
-vector<Edge> Christofides::minWeightPerfectMatching(const vector<Point>& points, const vector<int>& oddVertices)
+vector<Edge> Christofides::minWeightPerfectMatching(const vector<Point> &points, const vector<int> &oddVertices)
 {
     vector<Edge> matching;
     set<int> unmatched(oddVertices.begin(), oddVertices.end());
@@ -154,7 +154,7 @@ vector<Edge> Christofides::minWeightPerfectMatching(const vector<Point>& points,
     return matching;
 }
 
-vector<vector<pair<int, double>>> Christofides::combineGraphs(const vector<Point>& points, const MST& mst, const vector<Edge>& matching)
+vector<vector<pair<int, double>>> Christofides::combineGraphs(const vector<Point> &points, const MST &mst, const vector<Edge> &matching)
 {
     int n = points.size();
     vector<vector<pair<int, double>>> graph(n);
@@ -165,14 +165,14 @@ vector<vector<pair<int, double>>> Christofides::combineGraphs(const vector<Point
         graph[v].push_back({u, w});
     };
 
-    for (auto& e : mst.edges)
+    for (auto &e : mst.edges)
     {
         int u = find(points.begin(), points.end(), e.node1) - points.begin();
         int v = find(points.begin(), points.end(), e.node2) - points.begin();
         addEdge(u, v, e.weight);
     }
 
-    for (auto& e : matching)
+    for (auto &e : matching)
     {
         int u = find(points.begin(), points.end(), e.node1) - points.begin();
         int v = find(points.begin(), points.end(), e.node2) - points.begin();
@@ -182,13 +182,14 @@ vector<vector<pair<int, double>>> Christofides::combineGraphs(const vector<Point
     return graph;
 }
 
-vector<int> Christofides::findEulerianCircuit(vector<vector<pair<int, double>>>& graph)
+vector<int> Christofides::findEulerianCircuit(vector<vector<pair<int, double>>> &graph)
 {
     vector<int> circuit;
     stack<int> currPath;
     currPath.push(0);
     vector<int> currentDegree(graph.size());
-    for (int i = 0; i < graph.size(); ++i) currentDegree[i] = graph[i].size();
+    for (int i = 0; i < graph.size(); ++i)
+        currentDegree[i] = graph[i].size();
 
     while (!currPath.empty())
     {
@@ -211,7 +212,7 @@ vector<int> Christofides::findEulerianCircuit(vector<vector<pair<int, double>>>&
     return circuit;
 }
 
-vector<int> Christofides::makeHamiltonian(const vector<int>& eulerianCircuit)
+vector<int> Christofides::makeHamiltonian(const vector<int> &eulerianCircuit)
 {
     vector<int> path;
     set<int> visited;

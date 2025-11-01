@@ -1,15 +1,6 @@
 #include "ITSPsolver.hpp"
 
 using namespace std;
-struct MST
-{
-    vector<Edge> edges;
-    void addEdge(Point u, Point v, double weight)
-    {
-        edges.push_back({u, v, weight});
-    }
-};
-
 struct Edge
 {
     Point node1;
@@ -21,6 +12,15 @@ struct Edge
                (node1 == other.node2 && node2 == other.node1);
     }
 };
+struct MST
+{
+    vector<Edge> edges;
+    void addEdge(Point u, Point v, double weight)
+    {
+        edges.push_back({u, v, weight});
+    }
+};
+
 
 class Christofides : public ITSPSolver
 {

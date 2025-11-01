@@ -24,7 +24,6 @@ HEADERS = ITSPsolver.hpp \
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Default implementation for 'make run'
 IMPL ?= 0
 
 # Default target
