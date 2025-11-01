@@ -2,5 +2,5 @@
 class GreedyTSPSolver : public ITSPSolver
 {
 public:
-    vector<int> solve(vector<Point> &points) override;
+    vector<int> solve(const vector<Point> &points) override;
 };

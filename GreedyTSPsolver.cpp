@@ -1,6 +1,6 @@
 #include "ITSPsolver.hpp"
 #include "GreedyTSPsolver.hpp"
-vector<int> GreedyTSPSolver::solve(vector<Point> &points)
+vector<int> GreedyTSPSolver::solve(const vector<Point> &points)
 {
     int n = points.size();
     if (n == 0)

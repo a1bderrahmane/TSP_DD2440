@@ -43,15 +43,6 @@ public:
      */
     virtual vector<int> solve(const vector<Point> &points) = 0;
 
-    /**
-     * Optional: Initialize solver with points (for preprocessing).
-     * Default implementation does nothing.
-     * @param points Vector of 2D points
-     */
-    virtual void initialize( vector<Point> &points)
-    {
-    }
-
 protected:
     /**
      * Helper: Compute total tour length.
