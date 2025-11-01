@@ -41,7 +41,7 @@ public:
      * @param points Vector of 2D points to visit
      * @return Vector of indices representing the tour order (0-based)
      */
-    virtual vector<int> solve() = 0;
+    virtual vector<int> solve(const vector<Point> &points) = 0;
 
     /**
      * Optional: Initialize solver with points (for preprocessing).
