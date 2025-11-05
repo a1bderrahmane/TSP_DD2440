@@ -8,37 +8,26 @@ TARGET = tsp_solver
 # Source files
 SOURCES = main.cpp \
           GreedyTSPsolver.cpp \
-          Christofides.cpp \
-          Implementation2.cpp \
-          Implementation3.cpp \
-          Implementation4.cpp
+          LKH.cpp \
 
-# Header files (for dependency tracking)
-HEADERS = ITSPsolver.hpp \
-          GreedyTSPsolver.hpp \
-          Christofides.hpp \
-          Implementation2.hpp \
-          Implementation3.hpp \
-          Implementation4.hpp
-
-# Object files
+# Object files (one .o per .cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Default implementation for 'make run'
-IMPL ?= 0
+# If you want to track headers, you can list them here or just leave it empty
+HEADERS =
 
 # Default target
 all: $(TARGET)
 
-# Link object files into executable
+# Link step
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Compile each .cpp file into .o
+# Compile step
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Run the program with a given implementation (default: 0)
+# Run the program
 run: $(TARGET)
 	./$(TARGET) $(IMPL)
 
