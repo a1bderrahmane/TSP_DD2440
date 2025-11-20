@@ -14,7 +14,8 @@ struct Point
 
     Point() : x(0), y(0) {}
     Point(double x, double y) : x(x), y(y) {}
-    bool operator==(const Point& other) const {
+    bool operator==(const Point &other) const
+    {
         return (this->x == other.x && this->y == other.y);
     }
 };
@@ -24,7 +25,7 @@ inline double computeDistance(const Point &a, const Point &b)
 {
     double dx = a.x - b.x;
     double dy = a.y - b.y;
-    return dx * dx + dy * dy;
+    return (int)std::lround(std::hypot(dx, dy));
 }
 
 /**
@@ -50,7 +51,7 @@ protected:
      * @param tour Vector of indices representing the tour
      * @return Total tour length
      */
-     double computeTourLength(const vector<Point> &points,
+    double computeTourLength(const vector<Point> &points,
                              const vector<int> &tour) const
     {
         if (tour.empty())
